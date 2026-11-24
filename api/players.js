@@ -45,12 +45,12 @@ function fetchPage(url) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml'
       },
-      timeout: 4500
+      timeout: 5000
     }, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         const nextUrl = res.headers.location.startsWith('http')
           ? res.headers.location
-          : `https://www.gametracker.com${res.headers.location}`;
+          : `https://www.gametracker.rs${res.headers.location}`;
         return resolve(fetchPage(nextUrl));
       }
       let data = '';
@@ -58,7 +58,7 @@ function fetchPage(url) {
       res.on('end', () => resolve(data));
     });
     req.on('error', reject);
-    req.on('timeout', () => { req.destroy(); reject(new Error('GT Timeout')); });
+    req.on('timeout', () => { req.destroy(); reject(new Error('GT.rs Timeout')); });
   });
 }
 
@@ -74,63 +74,44 @@ function stripTags(html) {
     .trim();
 }
 
-function parseGameTracker(html) {
-  // 1. عدد اللاعبين والخريطة
-  const playersMatch = html.match(/(\d+)\s*\/\s*(\d+)\s*(?:Players|players)?/i);
+function parseGameTrackerRS(html) {
+  // 1. استخراج عدد اللاعبين (مثال: Players : 10 / 32)
+  const playersMatch = html.match(/Players\s*:\s*(?:<[^>]+>)*\s*(\d+)\s*(?:<[^>]+>)*\s*\/\s*(?:<[^>]+>)*\s*(\d+)/i);
   const numplayers = playersMatch ? parseInt(playersMatch[1], 10) : 0;
   const maxplayers = playersMatch ? parseInt(playersMatch[2], 10) : 32;
 
-  const mapMatch = html.match(/Current Map:\s*<\/[^>]+>\s*<[^>]+>([^<]+)/i) ||
-                   html.match(/map_([a-zA-Z0-9_-]+)\.jpg/i);
+  // 2. استخراج الخريطة الحالية
+  const mapMatch = html.match(/Map<\/[^>]+>[\s\S]*?<[^>]+>(de_[a-zA-Z0-9_-]+|cs_[a-zA-Z0-9_-]+|fy_[a-zA-Z0-9_-]+|awp_[a-zA-Z0-9_-]+)/i) ||
+                   html.match(/\/maps\/cs\/([a-zA-Z0-9_-]+)\.(?:jpg|png)/i);
   const map = mapMatch ? mapMatch[1].trim() : 'de_dust2';
 
-  // 2. استخراج جدول اللاعبين المتصلين وجدول Top 15 من الجداول
+  // 3. استخراج جدول اللاعبين من GameTracker.rs (# | Name | Score | Time)
   const tables = html.match(/<table[\s\S]*?<\/table>/gi) || [];
   let onlinePlayers = [];
-  let topPlayers = [];
 
   for (const table of tables) {
     const rows = table.match(/<tr[\s\S]*?<\/tr>/gi) || [];
     if (rows.length < 2) continue;
 
     const headerText = stripTags(rows[0]).toLowerCase();
-
-    // جدول اللاعبين المتصلين (يحتوي على Name و Score و Time)
-    if (headerText.includes('name') && headerText.includes('score') && headerText.includes('time') && !headerText.includes('rank')) {
+    if (headerText.includes('name') && headerText.includes('score') && headerText.includes('time')) {
       for (let i = 1; i < rows.length; i++) {
         const cols = (rows[i].match(/<td[\s\S]*?<\/td>/gi) || []).map(stripTags);
-        if (cols.length >= 3 && cols[0] && !cols[0].toLowerCase().includes('no players')) {
-          const score = parseInt(cols[1], 10) || 0;
+        if (cols.length >= 4 && cols[1] && !cols[1].toLowerCase().includes('no players')) {
+          const score = parseInt(cols[2], 10) || 0;
+          const timeStr = cols[3] || '0m';
           onlinePlayers.push(enrichSteam({
-            rank: onlinePlayers.length + 1,
-            name: cols[0],
+            rank: parseInt(cols[0], 10) || (onlinePlayers.length + 1),
+            name: cols[1],
             score,
             frags: score,
             kills: score,
-            time: cols[2] || '0:00:00',
-            duration: cols[2] || '0:00:00'
+            time: timeStr,
+            duration: timeStr
           }));
         }
       }
-    }
-
-    // جدول Top Players في GameTracker (يحتوي على Rank و Name و Score/Time)
-    if (headerText.includes('rank') && headerText.includes('name')) {
-      for (let i = 1; i < rows.length && topPlayers.length < 15; i++) {
-        const cols = (rows[i].match(/<td[\s\S]*?<\/td>/gi) || []).map(stripTags);
-        if (cols.length >= 4 && cols[1]) {
-          const kills = parseInt(cols[2].replace(/,/g, ''), 10) || 0;
-          const timeStr = cols[3] || '0:00:00';
-          topPlayers.push(enrichSteam({
-            rank: parseInt(cols[0].replace(/\D/g, ''), 10) || (topPlayers.length + 1),
-            name: cols[1],
-            kills,
-            hs: Math.round(kills * 0.42),
-            playtime: timeStr,
-            time: timeStr
-          }));
-        }
-      }
+      if (onlinePlayers.length > 0) break;
     }
   }
 
@@ -140,8 +121,7 @@ function parseGameTracker(html) {
     numplayers: onlinePlayers.length || numplayers,
     playersCount: onlinePlayers.length || numplayers,
     maxplayers,
-    players: onlinePlayers,
-    topPlayers
+    players: onlinePlayers
   };
 }
 
@@ -155,19 +135,16 @@ module.exports = async function handler(req, res) {
     numplayers: 0,
     playersCount: 0,
     maxplayers: 32,
-    players: [],
-    topPlayers: []
+    players: []
   };
 
   try {
-    const gtUrl = `https://www.gametracker.com/server_info/${SERVER_IP}:${SERVER_PORT}/`;
+    const gtUrl = `https://www.gametracker.rs/server_info/${SERVER_IP}:${SERVER_PORT}`;
     const html = await fetchPage(gtUrl);
-    result = parseGameTracker(html);
+    result = parseGameTrackerRS(html);
   } catch (_) {}
 
-  const finalTop15 = (result.topPlayers && result.topPlayers.length > 0)
-    ? result.topPlayers
-    : FALLBACK_TOP15.map(enrichSteam);
+  const finalTop15 = FALLBACK_TOP15.map(enrichSteam);
 
   return res.status(200).json({
     online: result.online,
