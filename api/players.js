@@ -1,4 +1,4 @@
-import dgram from 'dgram';
+const dgram = require('dgram');
 
 const STEAM_PLAYERS = {
   // ضع هنا أسماء لاعبي Steam بحروف صغيرة مع SteamID64
@@ -149,7 +149,7 @@ function querySourceServer(host, port, timeoutMs = 3000) {
   });
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 'no-store');
 
@@ -174,4 +174,4 @@ export default async function handler(req, res) {
     top15: topPlayers,
     updatedAt: new Date().toISOString()
   });
-}
+};
