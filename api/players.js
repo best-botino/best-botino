@@ -1,164 +1,186 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const { GameDig } = require('gamedig');
+import dgram from 'dgram';
 
-let cachedResponse = null;
+const SERVER_IP = '82.47.171.126';
+const SERVER_PORT = 27015;
 
-// حط هنا أسماء لاعبي Steam في سيرفرك (بحروف صغيرة) مع رقم SteamID64 الخاص بكل واحد
-const STEAM_PLAYERS = {
-  // مثال:
-  // "helium": "76561198000000000",
-  // "1st hokage": "76561198000000001"
-};
+// جلب معلومات السيرفر (A2S_INFO)
+function queryServerInfo(host, port, timeout = 3000) {
+  return new Promise((resolve, reject) => {
+    const client = dgram.createSocket('udp4');
+    const timer = setTimeout(() => {
+      try { client.close(); } catch {}
+      reject(new Error('Timeout A2S_INFO'));
+    }, timeout);
 
-const DEFAULT_STEAM_AVATAR =
-  "https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_medium.jpg";
+    const packet = Buffer.concat([
+      Buffer.from([0xFF, 0xFF, 0xFF, 0xFF, 0x54]),
+      Buffer.from('Source Engine Query\0', 'ascii')
+    ]);
 
-// قائمة احتياطية مضمونة من بيانات السيرفر
-const FALLBACK_TOP15 = [
-  { name: "Helium", isSteam: false, kills: 716, hs: 301, playtime: "9:50:07" },
-  { name: "1st Hokage", isSteam: false, kills: 700, hs: 294, playtime: "10:13:51" },
-  { name: "S.A.M.I.R", isSteam: false, kills: 644, hs: 270, playtime: "9:57:02" },
-  { name: "BIBO", isSteam: false, kills: 620, hs: 260, playtime: "9:11:40" },
-  { name: "๖VΘiD+", isSteam: false, kills: 572, hs: 240, playtime: "3:37:54" },
-  { name: "B@10", isSteam: false, kills: 549, hs: 231, playtime: "7:40:58" },
-  { name: "OnePunchMan", isSteam: false, kills: 533, hs: 224, playtime: "7:13:22" },
-  { name: "The Naked Man", isSteam: false, kills: 438, hs: 184, playtime: "4:56:01" },
-  { name: "「 N 」 e O", isSteam: false, kills: 401, hs: 168, playtime: "7:05:03" },
-  { name: "Joseph", isSteam: false, kills: 379, hs: 159, playtime: "4:07:45" },
-  { name: "AHLM", isSteam: false, kills: 321, hs: 135, playtime: "5:23:26" },
-  { name: "Rosamira:3", isSteam: false, kills: 319, hs: 134, playtime: "4:56:41" },
-  { name: "insta: salam_.vibes", isSteam: false, kills: 301, hs: 126, playtime: "5:28:57" },
-  { name: "Black Angel", isSteam: false, kills: 289, hs: 121, playtime: "9:53:24" },
-  { name: "MooDΞX", isSteam: false, kills: 275, hs: 116, playtime: "3:23:52" }
-];
-
-function formatSecs(sec) {
-  const s = Math.max(0, Math.floor(Number(sec) || 0));
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const rem = s % 60;
-  return `${h}:${String(m).padStart(2, '0')}:${String(rem).padStart(2, '0')}`;
-}
-
-function enrichSteam(player) {
-  const key = (player.name || '').trim().toLowerCase();
-  const steamId = STEAM_PLAYERS[key];
-  if (steamId) {
-    return {
-      ...player,
-      isSteam: true,
-      steamId,
-      avatar: DEFAULT_STEAM_AVATAR
+    const sendPacket = (challenge = null) => {
+      const msg = challenge ? Buffer.concat([packet, challenge]) : packet;
+      client.send(msg, port, host);
     };
-  }
-  return { ...player, isSteam: Boolean(player.isSteam) };
-}
 
-async function fetchGameTrackerTop15() {
-  const urls = [
-    'https://www.gametracker.rs/server_info/82.47.171.126:27015/',
-    'https://www.gametracker.rs/server_players/82.47.171.126:27015/'
-  ];
+    client.on('message', (msg) => {
+      if (msg.length < 5) return;
+      const type = msg[4];
 
-  for (const url of urls) {
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 4500);
-      const res = await fetch(url, {
-        signal: controller.signal,
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36'
-        }
-      });
+      // استجابة Challenge (0x41)
+      if (type === 0x41 && msg.length >= 9) {
+        sendPacket(msg.slice(5, 9));
+        return;
+      }
+
+      // استجابة A2S_INFO (0x49)
+      if (type === 0x49) {
+        clearTimeout(timer);
+        try { client.close(); } catch {}
+
+        let offset = 6; // تخطي الترويسة + البروتوكول
+        const readStr = () => {
+          const end = msg.indexOf(0x00, offset);
+          const str = msg.slice(offset, end).toString('utf8');
+          offset = end + 1;
+          return str;
+        };
+
+        const name = readStr();
+        const map = readStr();
+        readStr(); // folder
+        readStr(); // game
+        offset += 2; // appId
+        const players = msg[offset++];
+        const maxPlayers = msg[offset++];
+
+        resolve({ online: true, name, map, players, maxPlayers });
+      }
+    });
+
+    client.on('error', (err) => {
       clearTimeout(timer);
-      if (!res.ok) continue;
+      try { client.close(); } catch {}
+      reject(err);
+    });
 
-      const html = await res.text();
-      const rowRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
-      const extracted = [];
-      let match;
-
-      while ((match = rowRegex.exec(html)) !== null) {
-        const rowHtml = match[1];
-        const cells = [...rowHtml.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(m =>
-          m[1].replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
-        );
-        if (cells.length >= 4 && /^\d+\.?$/.test(cells[0])) {
-          const name = cells[1];
-          const kills = parseInt(cells[2].replace(/[^\d]/g, ''), 10) || 0;
-          const hs = cells.length >= 5 ? (parseInt(cells[3].replace(/[^\d]/g, ''), 10) || Math.round(kills * 0.42)) : Math.round(kills * 0.42);
-          const playtime = cells[cells.length - 1] || '0:00:00';
-          if (name && kills > 0) {
-            extracted.push({ name, kills, hs, playtime });
-          }
-        }
-      }
-
-      if (extracted.length >= 5) {
-        return extracted.slice(0, 15).map(enrichSteam);
-      }
-    } catch (_) {
-      // تجاهل الخطأ والانتقال للرابط التالي أو القائمة الاحتياطية
-    }
-  }
-
-  return FALLBACK_TOP15.map(enrichSteam);
+    sendPacket();
+  });
 }
+
+// جلب قائمة اللاعبين المتصلين (A2S_PLAYER)
+function queryPlayers(host, port, timeout = 3000) {
+  return new Promise((resolve) => {
+    const client = dgram.createSocket('udp4');
+    const timer = setTimeout(() => {
+      try { client.close(); } catch {}
+      resolve([]);
+    }, timeout);
+
+    const requestChallenge = Buffer.from([
+      0xFF, 0xFF, 0xFF, 0xFF, 0x55, 0xFF, 0xFF, 0xFF, 0xFF
+    ]);
+
+    client.on('message', (msg) => {
+      if (msg.length < 5) return;
+      const type = msg[4];
+
+      if (type === 0x41 && msg.length >= 9) {
+        const query = Buffer.concat([
+          Buffer.from([0xFF, 0xFF, 0xFF, 0xFF, 0x55]),
+          msg.slice(5, 9)
+        ]);
+        client.send(query, port, host);
+        return;
+      }
+
+      if (type === 0x44) {
+        clearTimeout(timer);
+        try { client.close(); } catch {}
+
+        const count = msg[5];
+        let offset = 6;
+        const list = [];
+
+        for (let i = 0; i < count && offset < msg.length; i++) {
+          offset += 1; // index
+          const end = msg.indexOf(0x00, offset);
+          if (end === -1) break;
+          const name = msg.slice(offset, end).toString('utf8') || 'Player';
+          offset = end + 1;
+          if (offset + 8 > msg.length) break;
+
+          const score = msg.readInt32LE(offset);
+          offset += 4;
+          const duration = Math.floor(msg.readFloatLE(offset));
+          offset += 4;
+
+          const mins = Math.floor(duration / 60);
+          const secs = duration % 60;
+          const timeFormatted = `${mins}m ${secs}s`;
+
+          list.push({
+            rank: i + 1,
+            name,
+            score,
+            frags: score,
+            kills: score,
+            duration,
+            time: timeFormatted
+          });
+        }
+
+        list.sort((a, b) => b.score - a.score);
+        resolve(list);
+      }
+    });
+
+    client.on('error', () => {
+      clearTimeout(timer);
+      try { client.close(); } catch {}
+      resolve([]);
+    });
+
+    client.send(requestChallenge, port, host);
+  });
+}
+
+// قائمة Top 15 (يمكنك تعديل الأسماء والأرقام كما تشاء)
+const TOP_15_PLAYERS = [
+  { rank: 1, name: "Botino | King", kills: 1420, hs: "48%", time: "42h 15m" },
+  { rank: 2, name: "DZ_Sniper", kills: 1185, hs: "52%", time: "36h 40m" },
+  { rank: 3, name: "HeadHunter", kills: 980, hs: "61%", time: "29h 10m" },
+  { rank: 4, name: "Algiers_Pro", kills: 875, hs: "44%", time: "25h 50m" },
+  { rank: 5, name: "Shadow_16", kills: 760, hs: "39%", time: "22h 05m" }
+];
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate=20');
-
-  let online = false;
-  let map = 'de_dust2';
-  let numplayers = 0;
-  let maxplayers = 32;
-  let players = [];
+  res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate=5');
 
   try {
-    const state = await GameDig.query({
-      type: 'cs16',
-      host: '82.47.171.126',
-      port: 27015,
-      socketTimeout: 3500,
-      attemptTimeout: 4000
+    const [info, playersList] = await Promise.all([
+      queryServerInfo(SERVER_IP, SERVER_PORT),
+      queryPlayers(SERVER_IP, SERVER_PORT)
+    ]);
+
+    return res.status(200).json({
+      online: true,
+      ip: `${SERVER_IP}:${SERVER_PORT}`,
+      map: info.map || 'de_dust2',
+      playersCount: info.players ?? playersList.length,
+      maxPlayers: info.maxPlayers || 32,
+      players: playersList,
+      top15: TOP_15_PLAYERS
     });
-
-    online = true;
-    map = state.map || 'de_dust2';
-    maxplayers = state.maxplayers || 32;
-    players = (state.players || [])
-      .filter(p => p && p.name && p.name.trim() !== '')
-      .map(p => enrichSteam({
-        name: p.name.trim(),
-        score: p.raw?.score ?? p.score ?? 0,
-        time: formatSecs(p.raw?.time ?? p.time ?? 0)
-      }))
-      .sort((a, b) => b.score - a.score);
-    numplayers = players.length || state.numplayers || 0;
-  } catch (err) {
-    if (cachedResponse && cachedResponse.online) {
-      online = cachedResponse.online;
-      map = cachedResponse.map;
-      numplayers = cachedResponse.numplayers;
-      maxplayers = cachedResponse.maxplayers;
-      players = cachedResponse.players;
-    }
+  } catch (error) {
+    return res.status(200).json({
+      online: false,
+      ip: `${SERVER_IP}:${SERVER_PORT}`,
+      map: 'de_dust2',
+      playersCount: 0,
+      maxPlayers: 32,
+      players: [],
+      top15: TOP_15_PLAYERS
+    });
   }
-
-  const topPlayers = await fetchGameTrackerTop15();
-
-  const payload = {
-    online,
-    map,
-    numplayers,
-    maxplayers,
-    players,
-    topPlayers,
-    updatedAt: new Date().toISOString()
-  };
-
-  cachedResponse = payload;
-  return res.status(200).json(payload);
 }
