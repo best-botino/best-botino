@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>彡 The Best Botino 彡 [Family] 亗 | CS 1.6 Server</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #070b14;
+      color: #f1f5f9;
+      scroll-behavior: smooth;
+    }
+    .font-tech {
+      font-family: 'Chakra Petch', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#070b14] text-slate-100 selection:bg-fuchsia-500 selection:text-white pb-24">
+
+  <!-- Navbar -->
+  <header class="border-b border-fuchsia-500/20 bg-slate-950/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-fuchsia-500 via-purple-500 to-sky-400 shadow-lg shadow-fuchsia-500/25 shrink-0 group-hover:scale-105 transition">
+          <div class="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center">
+            <img src="logo.jpg" alt="BOTINO"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              class="w-full h-full object-cover object-[42%_46%] scale-[1.35]" />
+            <span class="hidden font-tech text-xs font-extrabold text-fuchsia-300">CS</span>
+          </div>
+        </div>
+        <div>
+          <span class="font-tech text-xs sm:text-base font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-pink-300 to-sky-400 block whitespace-nowrap" dir="ltr">
+            彡 The Best Botino 彡 [Family] 亗
+          </span>
+          <span class="text-xs text-slate-400" data-i18n="brandSub">سيرفر Counter-Strike 1.6 • نمط Public متواصل</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-5 text-xs font-bold text-slate-300">
+        <a href="#players" class="hover:text-fuchsia-400 transition" data-i18n="navPlayers">اللاعبون</a>
+        <a href="#top15" class="hover:text-fuchsia-400 transition" data-i18n="navTop15">أفضل 15</a>
+        <a href="#events" class="hover:text-fuchsia-400 transition" data-i18n="navEvents">الفعاليات</a>
+        <a href="#ranks" class="hover:text-fuchsia-400 transition" data-i18n="navRanks">VIP و Admin</a>
+        <a href="#bans" class="hover:text-fuchsia-400 transition" data-i18n="navBans">قائمة الحظر</a>
+        <a href="#faq" class="hover:text-fuchsia-400 transition" data-i18n="navFaq">الأسئلة الشائعة</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/30 font-tech">
+          [PUB • FAMILY]
+        </span>
+        <button type="button" onclick="toggleLang()" id="langBtn"
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">
+          <svg class="w-4 h-3 rounded-[2px] shrink-0 shadow-sm" viewBox="0 0 60 30">
+            <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+            <g clip-path="url(#s)">
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+            </g>
+          </svg>
+          <span>English</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+
+    <!-- Server Banner Image (optional) -->
+    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
+      <img src="banner.jpg" alt="THE BEST BOTINO - 82.47.171.126:27015"
+        class="w-full max-h-[420px] object-cover object-center block"
+        onerror="this.parentElement.style.display='none';" />
+    </div>
+
+    <!-- Hero Server Card -->
+    <section class="rounded-2xl border border-fuchsia-500/30 bg-gradient-to-br from-slate-900 via-slate-900/95 to-fuchsia-950/30 p-6 sm:p-8 shadow-2xl shadow-fuchsia-950/20">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        
+        <!-- Logo + Info -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 min-w-0 flex-1">
+          <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-fuchsia-500 via-purple-500 to-sky-400 shadow-2xl shadow-fuchsia-500/30 shrink-0">
+            <div class="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center">
+              <img src="logo.jpg" alt="BOTINO"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                class="w-full h-full object-cover object-[42%_46%] scale-[1.35]" />
+              <span class="hidden font-tech text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-sky-400">BOTINO</span>
+            </div>
+          </div>
+
+          <div class="space-y-3 text-center sm:text-start min-w-0">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
+              <span id="liveDot" class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span id="liveStatusText" data-i18n="liveStatus">مجتمع واحد • السيرفر متصل وجاهز للدخول</span>
+            </div>
+            <h1 class="text-base sm:text-lg xl:text-[21px] font-extrabold text-white leading-tight xl:whitespace-nowrap" data-i18n="heroTitle">
+              مرحباً بك في سيرفر 彡 The Best Botino 彡 [Family] 亗
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl" data-i18n="heroDesc">
+              سيرفر Public يجمع اللاعبين في بيئة تنافسية منظمة ومستقرة على مدار الساعة في لعبة Counter-Strike 1.6.
+            </p>
+
+            <!-- Vote TopG Button -->
+            <div class="pt-1 space-y-1.5 max-w-md mx-auto sm:mx-0">
+              <button type="button" id="voteTopGBtn" onclick="handleTopGVote()"
+                class="w-full rounded-xl bg-gradient-to-r from-fuchsia-600/30 via-purple-600/30 to-sky-600/30 hover:from-fuchsia-600/45 hover:to-sky-600/45 border border-fuchsia-500/45 px-4 py-3 text-xs sm:text-sm font-extrabold text-fuchsia-200 transition shadow-lg shadow-fuchsia-950/30 flex items-center justify-center gap-2 cursor-pointer">
+                <span id="voteBtnText">🔥 صوّت للسيرفر (TopG)</span>
+              </button>
+              <p class="text-[11px] text-slate-400" data-i18n="voteHint">
+                ادعم ترتيب السيرفر بالتصويت مرة كل 12 ساعة عبر موقع TopG.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- IP & Connect Box -->
+        <div class="bg-slate-950/95 border border-fuchsia-500/30 rounded-xl p-4 min-w-[280px] shrink-0 space-y-3 shadow-lg">
+          <div class="text-xs text-slate-400 flex items-center justify-between">
+            <span data-i18n="serverIpLabel">عنوان السيرفر (IP:Port)</span>
+            <span class="text-fuchsia-400 font-tech font-bold">27015</span>
+          </div>
+          <div class="flex items-center justify-between gap-2 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5">
+            <code id="serverIp" class="font-tech text-sm sm:text-base font-bold text-fuchsia-300 select-all" dir="ltr">
+              82.47.171.126:27015
+            </code>
+            <button type="button" onclick="copyIp()" data-i18n="btnCopyIp"
+              class="px-3 py-1.5 rounded-md text-xs font-bold bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:from-fuchsia-400 hover:to-purple-500 text-white transition shrink-0">
+              نسخ
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="steam://connect/82.47.171.126:27015" data-i18n="btnPlayNow"
+              class="text-center py-2 px-3 rounded-lg text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">
+              انضم الآن
+            </a>
+            <a href="steam://connect/82.47.171.126:27015" data-i18n="btnSteamConnect"
+              class="text-center py-2 px-3 rounded-lg text-xs font-bold bg-sky-500 hover:bg-sky-400 text-slate-950 transition">
+              اتصال Steam
+            </a>
+          </div>
+          <p id="feedbackMsg" class="text-xs text-emerald-400 min-h-[1rem]"></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Strip with GameTracker Map Thumbnail -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 pt-6 border-t border-slate-800/80">
+        <div class="rounded-xl bg-slate-950/70 border border-slate-800/90 p-3.5 flex flex-col justify-center">
+          <div class="text-xs text-slate-400" data-i18n="statMode">نمط اللعب</div>
+          <div class="font-tech text-base font-bold text-fuchsia-300 mt-0.5">PUBLIC • [FAMILY]</div>
+        </div>
+
+        <!-- Current Map Card with GameTracker Image -->
+        <div class="rounded-xl bg-slate-950/70 border border-amber-500/30 p-3 flex items-center justify-between gap-3">
+          <div>
+            <div class="text-xs text-slate-400" data-i18n="statMap">الخريطة الحالية</div>
+            <div id="heroMap" class="font-tech text-base font-bold text-amber-400 mt-0.5" dir="ltr">de_dust2</div>
+          </div>
+          <div class="w-20 h-14 rounded-lg overflow-hidden border border-slate-700 bg-slate-900 shrink-0 shadow-md">
+            <img id="heroMapImg"
+              src="https://image.gametracker.com/images/maps/160x120/cs/de_dust2.jpg"
+              alt="de_dust2"
+              onerror="this.src='https://image.gametracker.com/images/maps/160x120/cs/default.jpg'"
+              class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div class="rounded-xl bg-slate-950/70 border border-slate-800/90 p-3.5 flex flex-col justify-center">
+          <div class="text-xs text-slate-400" data-i18n="statPlayers">اللاعبون المتصلون</div>
+          <div id="heroPlayers" class="font-tech text-base font-bold text-emerald-400 mt-0.5" dir="ltr">-- / 32</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Online Players Section (LIVE) -->
+    <section id="players" class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="text-xl font-bold text-white" data-i18n="onlineTitle">اللاعبون المتصلون حالياً</h2>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-tech font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">AUTO-LIVE 15s</span>
+          </div>
+          <p class="text-xs text-slate-400" data-i18n="onlineNote">
+            تحديث تلقائي مباشر من السيرفر 82.47.171.126:27015 كل 15 ثانية
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs inline-flex items-center gap-2">
+            <img id="barMapImg"
+              src="https://image.gametracker.com/images/maps/160x120/cs/de_dust2.jpg"
+              alt="de_dust2"
+              onerror="this.src='https://image.gametracker.com/images/maps/160x120/cs/default.jpg'"
+              class="w-7 h-5 rounded object-cover border border-slate-700" />
+            <span class="text-slate-400" data-i18n="mapLabel">الخريطة:</span>
+            <span id="currentMap" class="font-tech font-bold text-amber-400" dir="ltr">de_dust2</span>
+          </div>
+          <div class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+            <span class="text-slate-400" data-i18n="playersCountLabel">اللاعبون:</span>
+            <span id="playerCount" class="font-tech font-bold text-emerald-400 ml-1" dir="ltr">-- / 32</span>
+          </div>
+          <button type="button" onclick="refreshPlayers(true)" id="refreshBtn" data-i18n="btnRefresh"
+            class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-800 hover:bg-fuchsia-600 border border-slate-700 transition">
+            تحديث
+          </button>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-800">
+        <table class="w-full text-sm text-start">
+          <thead class="bg-slate-950 text-slate-400 text-xs uppercase">
+            <tr>
+              <th class="py-3 px-4 w-12">#</th>
+              <th class="py-3 px-4" data-i18n="colPlayer">اللاعب</th>
+              <th class="py-3 px-4" data-i18n="colScore">النقاط (Frags)</th>
+              <th class="py-3 px-4" data-i18n="colTime">مدة اللعب</th>
+            </tr>
+          </thead>
+          <tbody id="playersTableBody" class="divide-y divide-slate-800/80 bg-slate-900/50">
+            <tr>
+              <td colspan="4" class="py-6 px-4 text-center text-slate-400 text-xs">جاري جلب بيانات اللاعبين من السيرفر...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Events & Rewards Section -->
+    <section id="events" class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 sm:p-8 space-y-6">
+      <div class="border-b border-slate-800 pb-5">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mb-2" data-i18n="eventsBadge">
+          فعاليات وجوائز السيرفر
+        </span>
+        <h2 class="text-2xl font-extrabold text-white" data-i18n="eventsTitle">سجل الفعاليات وجوائز التميز</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1" data-i18n="eventsDesc">
+          مكافآت دورية لأفضل اللاعبين في الترتيب ولأكثر اللاعبين تواجداً داخل السيرفر.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="rounded-2xl bg-slate-950 border border-fuchsia-500/40 p-5 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-tech text-xs font-bold px-2.5 py-1 rounded-md bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/30">
+              TOP 1
+            </span>
+            <span class="text-xs text-slate-400" data-i18n="eventRewardLabel">الجائزة</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-white pt-1" data-i18n="evTop1Title">المركز الأول (Top 1)</h3>
+          <p class="text-sm font-bold text-fuchsia-400" data-i18n="evTop1Prize">عضوية VIP لمدة شهر كامل</p>
+          <p class="text-xs text-slate-400" data-i18n="evTop1Note">يُمنح لصاحب المركز الأول في قائمة أفضل 15 لاعباً.</p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-950 border border-sky-500/40 p-5 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-tech text-xs font-bold px-2.5 py-1 rounded-md bg-sky-500/15 text-sky-300 border border-sky-500/30">
+              TOP 2 & TOP 3
+            </span>
+            <span class="text-xs text-slate-400" data-i18n="eventRewardLabel">الجائزة</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-white pt-1" data-i18n="evTop23Title">المركزان الثاني والثالث</h3>
+          <p class="text-sm font-bold text-sky-400" data-i18n="evTop23Prize">عضوية VIP لمدة أسبوع لكل منهما</p>
+          <p class="text-xs text-slate-400" data-i18n="evTop23Note">يُمنح لصاحبي المركزين الثاني والثالث في الترتيب.</p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-950 border border-emerald-500/40 p-5 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-tech text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+              MOST PLAYTIME
+            </span>
+            <span class="text-xs text-slate-400" data-i18n="eventRewardLabel">الجائزة</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-white pt-1" data-i18n="evActiveTitle">الأكثر تواجداً ولعباً</h3>
+          <p class="text-sm font-bold text-emerald-400" data-i18n="evActivePrize">عضوية VIP لمدة شهر كامل</p>
+          <p class="text-xs text-slate-400" data-i18n="evActiveNote">يُمنح لأكثر لاعب يقضي وقتاً متواصلاً داخل السيرفر.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top 15 Leaderboard Section -->
+    <section id="top15" class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-white" data-i18n="top15Title">قائمة أفضل 15 لاعباً (Top 15)</h2>
+          <p class="text-xs text-slate-400" data-i18n="top15Note">
+            ترتيب اللاعبين حسب الأداء داخل السيرفر • حسابات Steam تظهر بالصورة والرمز
+          </p>
+        </div>
+        <span class="px-3 py-1 rounded-lg bg-slate-950 border border-fuchsia-500/30 text-xs font-tech text-fuchsia-300">
+          TOP 15 RANKING
+        </span>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-800">
+        <table class="w-full text-sm text-start">
+          <thead class="bg-slate-950 text-slate-400 text-xs uppercase">
+            <tr>
+              <th class="py-3 px-4 w-14">#</th>
+              <th class="py-3 px-4" data-i18n="colPlayer">اللاعب</th>
+              <th class="py-3 px-4" data-i18n="colKills">القتل (Kills)</th>
+              <th class="py-3 px-4" data-i18n="colHs">إصابات الرأس (HS)</th>
+              <th class="py-3 px-4" data-i18n="colPlaytime">مدة اللعب</th>
+            </tr>
+          </thead>
+          <tbody id="top15TableBody" class="divide-y divide-slate-800/80 bg-slate-900/50">
+            <tr>
+              <td colspan="5" class="py-6 px-4 text-center text-slate-400 text-xs">جاري جلب قائمة أفضل 15 لاعباً...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VIP & Admin Pricing (Algeria vs International) -->
+    <section id="ranks" class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 sm:p-8 space-y-6">
+      <div class="border-b border-slate-800 pb-5">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/30 mb-2" data-i18n="ranksBadge">
+          الرتب والأسعار
+        </span>
+        <h2 class="text-2xl font-extrabold text-white" data-i18n="ranksTitle">أسعار VIP و Admin (داخل وخارج الجزائر)</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1" data-i18n="ranksDesc">
+          أسعار واضحة للاعبين داخل الجزائر وبالدولار للاعبين من خارج الجزائر.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Inside Algeria (DZD) -->
+        <div class="rounded-2xl bg-slate-950 border border-fuchsia-500/30 p-5 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-extrabold text-fuchsia-400" data-i18n="dzTitle">داخل الجزائر (DZD)</h3>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-fuchsia-500/10 text-fuchsia-300 border border-fuchsia-500/20" data-i18n="dzTag">الجزائر</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="rounded-xl bg-slate-900/90 border border-slate-800 p-4">
+                <div class="text-xs text-slate-400" data-i18n="vipLabel">رتبة VIP</div>
+                <div class="font-tech text-xl font-extrabold text-emerald-400 mt-1">300 DZD</div>
+                <div class="text-[11px] text-slate-400 mt-0.5" data-i18n="dz300Sub">300 دينار جزائري</div>
+              </div>
+              <div class="rounded-xl bg-slate-900/90 border border-slate-800 p-4">
+                <div class="text-xs text-slate-400" data-i18n="adminLabel">رتبة Admin</div>
+                <div class="font-tech text-xl font-extrabold text-fuchsia-300 mt-1">500 DZD</div>
+                <div class="text-[11px] text-slate-400 mt-0.5" data-i18n="dz500Sub">500 دينار جزائري</div>
+              </div>
+            </div>
+
+            <div class="pt-1 space-y-2">
+              <div class="text-xs font-bold text-slate-300" data-i18n="dzPayHeading">طرق الدفع في الجزائر:</div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                <div class="rounded-lg bg-slate-900 border border-slate-800 p-2.5 text-center">
+                  <div class="font-bold text-fuchsia-300" data-i18n="payBaridimob">بريدي موب</div>
+                  <div class="text-[11px] text-slate-400">BaridiMob / RIP</div>
+                </div>
+                <div class="rounded-lg bg-slate-900 border border-slate-800 p-2.5 text-center">
+                  <div class="font-bold text-sky-300" data-i18n="payCcp">حساب CCP</div>
+                  <div class="text-[11px] text-slate-400" data-i18n="payCcpSub">بريد الجزائر</div>
+                </div>
+                <div class="rounded-lg bg-slate-900 border border-slate-800 p-2.5 text-center">
+                  <div class="font-bold text-emerald-300" data-i18n="payFlexy">رصيد / Flexy</div>
+                  <div class="text-[11px] text-slate-400" data-i18n="payFlexySub">حسب التوفر</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://discord.com/channels/1348636178072600617/1354800511659937822" target="_blank" rel="noopener noreferrer"
+            data-i18n="buyNowTicketBtn"
+            class="block w-full text-center py-2.5 px-4 rounded-xl text-xs font-bold bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:from-fuchsia-400 hover:to-purple-500 text-white transition shadow-lg shadow-fuchsia-500/20">
+            شراء الآن (فتح Ticket في Discord) ↗
+          </a>
+        </div>
+
+        <!-- International (USD) -->
+        <div class="rounded-2xl bg-slate-950 border border-sky-500/30 p-5 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-extrabold text-sky-400" data-i18n="intlTitle">خارج الجزائر (USD)</h3>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-300 border border-sky-500/20" data-i18n="intlTag">دولي</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="rounded-xl bg-slate-900/90 border border-slate-800 p-4">
+                <div class="text-xs text-slate-400" data-i18n="vipLabel">رتبة VIP</div>
+                <div class="font-tech text-xl font-extrabold text-emerald-400 mt-1">$2 USD</div>
+                <div class="text-[11px] text-slate-400 mt-0.5" data-i18n="usd2Sub">2 دولار أمريكي</div>
+              </div>
+              <div class="rounded-xl bg-slate-900/90 border border-slate-800 p-4">
+                <div class="text-xs text-slate-400" data-i18n="adminLabel">رتبة Admin</div>
+                <div class="font-tech text-xl font-extrabold text-sky-300 mt-1">$5 USD</div>
+                <div class="text-[11px] text-slate-400 mt-0.5" data-i18n="usd5Sub">5 دولار أمريكي</div>
+              </div>
+            </div>
+
+            <div class="pt-1 space-y-2">
+              <div class="text-xs font-bold text-slate-300" data-i18n="intlPayHeading">طرق الدفع الدولية:</div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                <div class="rounded-lg bg-slate-900 border border-slate-800 p-2.5 text-center">
+                  <div class="font-bold text-sky-300 font-tech">PayPal</div>
+                  <div class="text-[11px] text-slate-400" data-i18n="intlInstant">تحويل مباشر</div>
+                </div>
+                <div class="rounded-lg bg-slate-900 border border-slate-800 p-2.5 text-center">
+                  <div class="font-bold text-amber-300 font-tech">Binance</div>
+                  <div class="text-[11px] text-slate-400">Binance Pay / ID</div>
+                </div>
+                <div class="rounded-lg bg-slate-900 border border-slate-800 p-2.5 text-center">
+                  <div class="font-bold text-emerald-300 font-tech">Visa Card</div>
+                  <div class="text-[11px] text-slate-400" data-i18n="intlCard">بطاقة دولية</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://discord.com/channels/1348636178072600617/1354800511659937822" target="_blank" rel="noopener noreferrer"
+            data-i18n="buyNowTicketBtn"
+            class="block w-full text-center py-2.5 px-4 rounded-xl text-xs font-bold bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white transition shadow-lg shadow-sky-500/20">
+            شراء الآن (فتح Ticket في Discord) ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ban List Section -->
+    <section id="bans" class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-5">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-white" data-i18n="banTitle">سجل الحظر (Ban List)</h2>
+          <p class="text-xs text-slate-400" data-i18n="banNote">
+            ابحث باسم اللاعب أو السبب، وفي حال وجود التباس يرجى التواصل مع الإدارة للمراجعة.
+          </p>
+        </div>
+        <input id="banSearchInput" type="text" oninput="renderBans()" data-i18n-placeholder="banSearchPh"
+          placeholder="بحث بالاسم أو السبب..."
+          class="w-full sm:w-64 rounded-xl bg-slate-950 border border-slate-700 px-3.5 py-2 text-xs text-white focus:outline-none focus:border-fuchsia-400" />
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-800">
+        <table class="w-full text-sm text-start">
+          <thead class="bg-slate-950 text-slate-400 text-xs uppercase">
+            <tr>
+              <th class="py-3 px-4" data-i18n="colPlayer">اللاعب</th>
+              <th class="py-3 px-4" data-i18n="colReason">السبب</th>
+              <th class="py-3 px-4" data-i18n="colDuration">المدة</th>
+              <th class="py-3 px-4" data-i18n="colStatus">الحالة</th>
+            </tr>
+          </thead>
+          <tbody id="bansTableBody" class="divide-y divide-slate-800/80 bg-slate-900/50"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ & Community Links -->
+    <section id="faq" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-3">
+        <h2 class="text-xl font-bold text-white mb-2" data-i18n="faqTitle">الأسئلة الشائعة (FAQ)</h2>
+
+        <details class="rounded-xl bg-slate-950 border border-slate-800 p-4" open>
+          <summary class="font-bold text-sm text-fuchsia-300 cursor-pointer list-none flex justify-between items-center">
+            <span data-i18n="faq1Q">كيف يمكنني الدخول إلى السيرفر؟</span>
+            <span class="text-slate-400 text-xs">+</span>
+          </summary>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed" data-i18n="faq1A">
+            يمكنك الضغط على زر (انضم الآن) أو (اتصال Steam)، أو فتح وحدة التحكم داخل اللعبة وكتابة: connect 82.47.171.126:27015.
+          </p>
+        </details>
+
+        <details class="rounded-xl bg-slate-950 border border-slate-800 p-4">
+          <summary class="font-bold text-sm text-fuchsia-300 cursor-pointer list-none flex justify-between items-center">
+            <span data-i18n="faq2Q">ما هي أسعار VIP و Admin وطرق الدفع المتاحة؟</span>
+            <span class="text-slate-400 text-xs">+</span>
+          </summary>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed" data-i18n="faq2A">
+            داخل الجزائر: VIP بـ 300 دج وAdmin بـ 500 دج (عبر بريدي موب، CCP، أو رصيد). خارج الجزائر: VIP بـ $2 وAdmin بـ $5 (عبر PayPal، Binance، أو Visa Card).
+          </p>
+        </details>
+
+        <details class="rounded-xl bg-slate-950 border border-slate-800 p-4">
+          <summary class="font-bold text-sm text-fuchsia-300 cursor-pointer list-none flex justify-between items-center">
+            <span data-i18n="faq3Q">كيف تُمنح جوائز الفعاليات وأفضل 15 لاعباً؟</span>
+            <span class="text-slate-400 text-xs">+</span>
+          </summary>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed" data-i18n="faq3A">
+            يحصل صاحب المركز الأول (Top 1) على VIP لمدة شهر، والمركزان الثاني والثالث على VIP لمدة أسبوع، كما يحصل الأكثر تواجداً ولعباً على VIP لمدة شهر.
+          </p>
+        </details>
+      </div>
+
+      <!-- Community Card with Official Logos -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 flex flex-col justify-between space-y-4">
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border border-fuchsia-500/50 shrink-0 bg-slate-950 flex items-center justify-center">
+              <img src="logo.jpg" alt="BOTINO"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                class="w-full h-full object-cover object-[42%_46%] scale-[1.35]" />
+              <span class="hidden font-tech text-xs font-extrabold text-fuchsia-300">CS</span>
+            </div>
+            <h2 class="text-xl font-bold text-white" data-i18n="commTitle">المجتمع والتواصل</h2>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="commDesc">
+            تابع آخر المستجدات وتواصل مع إدارة 彡 The Best Botino 彡 [Family] 亗.
+          </p>
+        </div>
+
+        <div class="space-y-2.5 text-xs font-bold">
+          <!-- Discord -->
+          <a href="https://dsc.gg/botino" target="_blank" rel="noopener noreferrer"
+            class="w-full py-2.5 px-4 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/40 text-indigo-300 transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+            <span>Discord Community</span>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/groups/706537014401734" target="_blank" rel="noopener noreferrer"
+            class="w-full py-2.5 px-4 rounded-xl bg-sky-600/20 hover:bg-sky-600/30 border border-sky-500/40 text-sky-300 transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+            </svg>
+            <span>Facebook Group</span>
+          </a>
+
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@botino20" target="_blank" rel="noopener noreferrer"
+            class="w-full py-2.5 px-4 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/40 text-rose-300 transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span>YouTube Channel</span>
+          </a>
+
+          <!-- Steam -->
+          <a href="steam://connect/82.47.171.126:27015"
+            class="w-full py-2.5 px-4 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+            </svg>
+            <span data-i18n="steamDirectBtn">دخول مباشر عبر Steam</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-800/80 py-6 text-center text-xs text-slate-400 space-y-1">
+    <div dir="ltr">彡 The Best Botino 彡 [Family] 亗 • 82.47.171.126:27015</div>
+    <div class="text-slate-500" data-i18n="footerSub">سيرفر مجتمعي للعبة Counter-Strike 1.6</div>
+  </footer>
+
+  <!-- Persistent Floating Donation Popup Widget (Minimized by default) -->
+  <aside id="donationWidget" class="fixed bottom-4 left-4 z-50 w-72 sm:w-80 rounded-2xl border border-fuchsia-500/40 bg-slate-950/95 backdrop-blur shadow-2xl shadow-fuchsia-950/30 overflow-hidden">
+    <div class="flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-fuchsia-500/25 to-slate-900 border-b border-slate-800/70">
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-fuchsia-400 animate-pulse"></span>
+        <span class="text-xs font-extrabold text-fuchsia-300" data-i18n="donateTitle">دعم عائلة بوتينو (Donation)</span>
+      </div>
+      <button type="button" onclick="toggleDonateBody()" id="donateToggleBtn"
+        class="text-xs font-bold px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition">
+        +
+      </button>
+    </div>
+
+    <div id="donateBody" class="hidden p-4 space-y-3 text-xs border-t border-slate-800">
+      <div class="space-y-2 text-slate-200 leading-relaxed">
+        <p data-i18n="donateP1">
+          بدعم عائلة بوتينو في البقاء والتطور، ندعوكم للوقوف معنا ودعم سيرفر Counter-Strike 1.6 ❤️
+        </p>
+        <p class="text-slate-300" data-i18n="donateP2">
+          سيرفرنا ليس مجرد مكان للعب، بل عائلة تجمعنا بالصداقة والتحدي والمتعة. بدعمكم ومشاركتكم، نستطيع تطويره وتقديم الأفضل للجميع.
+        </p>
+        <p class="font-bold text-fuchsia-300" data-i18n="donateP3">
+          معاً نحو المزيد من النجاح والتقدم! شكراً لكل من يدعم عائلة بوتينو
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-1.5 text-[11px] pt-1">
+        <div class="rounded-lg bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-fuchsia-300 font-semibold text-center">BaridiMob / CCP</div>
+        <div class="rounded-lg bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-sky-300 font-semibold font-tech text-center">PayPal / Binance</div>
+        <div class="rounded-lg bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-emerald-300 font-semibold font-tech col-span-2 text-center">Visa Card</div>
+      </div>
+
+      <a href="https://discord.com/channels/1348636178072600617/1354800511659937822" target="_blank" rel="noopener noreferrer" data-i18n="donateCta"
+        class="block w-full text-center py-2.5 rounded-xl font-bold bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:from-fuchsia-400 hover:to-purple-500 text-white transition shadow-lg shadow-fuchsia-500/20">
+        تفاصيل الدفع والرتب ↗
+      </a>
+    </div>
+  </aside>
+
+  <script>
+    const SERVER_IP = "82.47.171.126";
+    const SERVER_PORT = "27015";
+    const IP_ADDR = `${SERVER_IP}:${SERVER_PORT}`;
+    const TOPG_VOTE_URL = "https://topg.org/cs-servers/server-689044";
+    const VOTE_COOLDOWN_MS = 12 * 60 * 60 * 1000;
+
+    const UK_FLAG_SVG = `
+      <svg class="w-4 h-3 rounded-[2px] shrink-0 shadow-sm" viewBox="0 0 60 30" aria-hidden="true">
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+      </svg>
+    `;
+
+    const DZ_FLAG_SVG = `
+      <svg class="w-4 h-3 rounded-[2px] shrink-0 shadow-sm" viewBox="0 0 60 40" aria-hidden="true">
+        <rect width="30" height="40" x="0" y="0" fill="#006633"/>
+        <rect width="30" height="40" x="30" y="0" fill="#ffffff"/>
+        <circle cx="30" cy="20" r="10" fill="#d21034"/>
+        <circle cx="32.5" cy="20" r="8" fill="#ffffff"/>
+        <path d="M30,20 l10,0 l-8.09,5.88 l3.09,-9.51 l3.09,9.51 z" fill="#d21034" transform="rotate(-18 33 20) scale(0.55) translate(27, 16)"/>
+      </svg>
+    `;
+
+    const STEAM_ICON_SVG = `
+      <svg class="w-4 h-4 text-sky-400 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-label="Steam">
+        <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+      </svg>
+    `;
+
+    // يبدأ فارغاً بدون أي أسماء تجريبية قديمة
+    let top15Data = [];
+
+    const sampleBans = [
+      { player: "ToxicPlayer99", reason: "Abusive Chat / Toxicity", duration: "24h", active: true },
+      { player: "NoScanUser", reason: "Refused WarGods Check", duration: "Permanent", active: true },
+      { player: "Spammer_DZ", reason: "Mic / Chat Spam", duration: "2h", active: false }
+    ];
+
+    let currentLang = "ar";
+    let lastLivePlayers = [];
+
+    const translations = {
+      ar: {
+        brandSub: "سيرفر Counter-Strike 1.6 • نمط Public متواصل",
+        navPlayers: "اللاعبون",
+        navTop15: "أفضل 15",
+        navEvents: "الفعاليات",
+        navRanks: "VIP و Admin",
+        navBans: "قائمة الحظر",
+        navFaq: "الأسئلة الشائعة",
+        liveStatus: "مجتمع واحد • السيرفر متصل وجاهز للدخول",
+        heroTitle: "مرحباً بك في سيرفر 彡 The Best Botino 彡 [Family] 亗",
+        heroDesc: "سيرفر Public يجمع اللاعبين في بيئة تنافسية منظمة ومستقرة على مدار الساعة في لعبة Counter-Strike 1.6.",
+        voteHint: "ادعم ترتيب السيرفر بالتصويت مرة كل 12 ساعة عبر موقع TopG.",
+        btnCopyIp: "نسخ",
+        serverIpLabel: "عنوان السيرفر (IP:Port)",
+        btnPlayNow: "انضم الآن",
+        btnSteamConnect: "اتصال Steam",
+        buyNowTicketBtn: "شراء الآن (فتح Ticket في Discord) ↗",
+        statMode: "نمط اللعب",
+        statMap: "الخريطة الحالية",
+        statPlayers: "اللاعبون المتصلون",
+        onlineTitle: "اللاعبون المتصلون حالياً",
+        onlineNote: "تحديث تلقائي مباشر من السيرفر 82.47.171.126:27015 كل 15 ثانية",
+        mapLabel: "الخريطة:",
+        playersCountLabel: "اللاعبون:",
+        btnRefresh: "تحديث",
+        colPlayer: "اللاعب",
+        colScore: "النقاط (Frags)",
+        colTime: "مدة اللعب",
+        eventsBadge: "فعاليات وجوائز السيرفر",
+        eventsTitle: "سجل الفعاليات وجوائز التميز",
+        eventsDesc: "مكافآت دورية لأفضل اللاعبين في الترتيب ولأكثر اللاعبين تواجداً داخل السيرفر.",
+        eventRewardLabel: "الجائزة",
+        evTop1Title: "المركز الأول (Top 1)",
+        evTop1Prize: "عضوية VIP لمدة شهر كامل",
+        evTop1Note: "يُمنح لصاحب المركز الأول في قائمة أفضل 15 لاعباً.",
+        evTop23Title: "المركزان الثاني والثالث",
+        evTop23Prize: "عضوية VIP لمدة أسبوع لكل منهما",
+        evTop23Note: "يُمنح لصاحبي المركزين الثاني والثالث في الترتيب.",
+        evActiveTitle: "الأكثر تواجداً ولعباً",
+        evActivePrize: "عضوية VIP لمدة شهر كامل",
+        evActiveNote: "يُمنح لأكثر لاعب يقضي وقتاً متواصلاً داخل السيرفر.",
+        top15Title: "قائمة أفضل 15 لاعباً (Top 15)",
+        top15Note: "ترتيب اللاعبين حسب الأداء داخل السيرفر • حسابات Steam تظهر بالصورة والرمز",
+        colKills: "القتل (Kills)",
+        colHs: "إصابات الرأس (HS)",
+        colPlaytime: "مدة اللعب",
+        ranksBadge: "الرتب والأسعار",
+        ranksTitle: "أسعار VIP و Admin (داخل وخارج الجزائر)",
+        ranksDesc: "أسعار واضحة للاعبين داخل الجزائر وبالدولار للاعبين من خارج الجزائر.",
+        dzTitle: "داخل الجزائر (DZD)",
+        dzTag: "الجزائر",
+        vipLabel: "رتبة VIP",
+        adminLabel: "رتبة Admin",
+        dz300Sub: "300 دينار جزائري",
+        dz500Sub: "500 دينار جزائري",
+        dzPayHeading: "طرق الدفع في الجزائر:",
+        payBaridimob: "بريدي موب",
+        payCcp: "حساب CCP",
+        payCcpSub: "بريد الجزائر",
+        payFlexy: "رصيد / Flexy",
+        payFlexySub: "حسب التوفر",
+        intlTitle: "خارج الجزائر (USD)",
+        intlTag: "دولي",
+        usd2Sub: "2 دولار أمريكي",
+        usd5Sub: "5 دولار أمريكي",
+        intlPayHeading: "طرق الدفع الدولية:",
+        intlInstant: "تحويل مباشر",
+        intlCard: "بطاقة دولية",
+        banTitle: "سجل الحظر (Ban List)",
+        banNote: "ابحث باسم اللاعب أو السبب، وفي حال وجود التباس يرجى التواصل مع الإدارة للمراجعة.",
+        banSearchPh: "بحث بالاسم أو السبب...",
+        colReason: "السبب",
+        colDuration: "المدة",
+        colStatus: "الحالة",
+        faqTitle: "الأسئلة الشائعة (FAQ)",
+        faq1Q: "كيف يمكنني الدخول إلى السيرفر؟",
+        faq1A: "يمكنك الضغط على زر (انضم الآن) أو (اتصال Steam)، أو فتح وحدة التحكم داخل اللعبة وكتابة: connect 82.47.171.126:27015.",
+        faq2Q: "ما هي أسعار VIP و Admin وطرق الدفع المتاحة؟",
+        faq2A: "داخل الجزائر: VIP بـ 300 دج وAdmin بـ 500 دج (عبر بريدي موب، CCP، أو رصيد). خارج الجزائر: VIP بـ $2 وAdmin بـ $5 (عبر PayPal، Binance، أو Visa Card).",
+        faq3Q: "كيف تُمنح جوائز الفعاليات وأفضل 15 لاعباً؟",
+        faq3A: "يحصل صاحب المركز الأول (Top 1) على VIP لمدة شهر، والمركزان الثاني والثالث على VIP لمدة أسبوع، كما يحصل الأكثر تواجداً ولعباً على VIP لمدة شهر.",
+        commTitle: "المجتمع والتواصل",
+        commDesc: "تابع آخر المستجدات وتواصل مع إدارة 彡 The Best Botino 彡 [Family] 亗.",
+        steamDirectBtn: "دخول مباشر عبر Steam",
+        footerSub: "سيرفر مجتمعي للعبة Counter-Strike 1.6",
+        donateTitle: "دعم عائلة بوتينو (Donation)",
+        donateP1: "بدعم عائلة بوتينو في البقاء والتطور، ندعوكم للوقوف معنا ودعم سيرفر Counter-Strike 1.6 ❤️",
+        donateP2: "سيرفرنا ليس مجرد مكان للعب، بل عائلة تجمعنا بالصداقة والتحدي والمتعة. بدعمكم ومشاركتكم، نستطيع تطويره وتقديم الأفضل للجميع.",
+        donateP3: "معاً نحو المزيد من النجاح والتقدم! شكراً لكل من يدعم عائلة بوتينو",
+        donateCta: "تفاصيل الدفع والرتب ↗",
+        statusActive: "نشط",
+        statusExpired: "منتهي",
+        noBanResults: "لا توجد نتائج مطابقة لبحثك.",
+        noPlayersOnline: "لا يوجد لاعبون متصلون حالياً أو السيرفر يغيّر الخريطة.",
+        noTop15Data: "لا توجد بيانات متاحة لترتيب أفضل 15 لاعباً حالياً.",
+        refreshedMsg: "تم تحديث البيانات المباشرة من السيرفر.",
+        copiedIpMsg: (ip) => `تم نسخ العنوان: ${ip}`
+      },
+      en: {
+        brandSub: "Counter-Strike 1.6 Server • 24/7 Public Mode",
+        navPlayers: "Players",
+        navTop15: "Top 15",
+        navEvents: "Events",
+        navRanks: "VIP & Admin",
+        navBans: "Ban List",
+        navFaq: "FAQ",
+        liveStatus: "One Community • Server Online & Ready",
+        heroTitle: "Welcome to 彡 The Best Botino 彡 [Family] 亗",
+        heroDesc: "A 24/7 Public server bringing players together in a structured and competitive Counter-Strike 1.6 environment.",
+        voteHint: "Support the server ranking by voting once every 12 hours on TopG.",
+        btnCopyIp: "Copy",
+        serverIpLabel: "Server Address (IP:Port)",
+        btnPlayNow: "Play Now",
+        btnSteamConnect: "Steam Connect",
+        buyNowTicketBtn: "Buy Now (Open Ticket on Discord) ↗",
+        statMode: "Game Mode",
+        statMap: "Current Map",
+        statPlayers: "Online Players",
+        onlineTitle: "Online Players Now",
+        onlineNote: "Automatic live updates from server 82.47.171.126:27015 every 15 seconds",
+        mapLabel: "Map:",
+        playersCountLabel: "Players:",
+        btnRefresh: "Refresh",
+        colPlayer: "Player",
+        colScore: "Score (Frags)",
+        colTime: "Playtime",
+        eventsBadge: "Server Events & Rewards",
+        eventsTitle: "Events & Achievement Rewards",
+        eventsDesc: "Periodic rewards for top-ranked players and the most active player on the server.",
+        eventRewardLabel: "Reward",
+        evTop1Title: "Rank #1 (Top 1)",
+        evTop1Prize: "VIP Membership for 1 Month",
+        evTop1Note: "Awarded to the player ranked first on the Top 15 leaderboard.",
+        evTop23Title: "Ranks #2 & #3 (Top 2 & 3)",
+        evTop23Prize: "VIP Membership for 1 Week Each",
+        evTop23Note: "Awarded to the second and third place players on the leaderboard.",
+        evActiveTitle: "Most Playtime",
+        evActivePrize: "VIP Membership for 1 Month",
+        evActiveNote: "Awarded to the player with the highest total playtime in the server.",
+        top15Title: "Top 15 Leaderboard",
+        top15Note: "Player rankings by server performance • Steam accounts show avatar & icon",
+        colKills: "Kills",
+        colHs: "Headshots (HS)",
+        colPlaytime: "Playtime",
+        ranksBadge: "Ranks & Pricing",
+        ranksTitle: "VIP & Admin Pricing (Algeria & International)",
+        ranksDesc: "Clear pricing in DZD for Algeria and in USD for international players.",
+        dzTitle: "Inside Algeria (DZD)",
+        dzTag: "Algeria",
+        vipLabel: "VIP Rank",
+        adminLabel: "Admin Rank",
+        dz300Sub: "300 Algerian Dinars",
+        dz500Sub: "500 Algerian Dinars",
+        dzPayHeading: "Payment Methods in Algeria:",
+        payBaridimob: "BaridiMob",
+        payCcp: "CCP Account",
+        payCcpSub: "Algérie Poste",
+        payFlexy: "Mobile Balance / Flexy",
+        payFlexySub: "When available",
+        intlTitle: "Outside Algeria (USD)",
+        intlTag: "International",
+        usd2Sub: "2 US Dollars",
+        usd5Sub: "5 US Dollars",
+        intlPayHeading: "International Payment Methods:",
+        intlInstant: "Direct Transfer",
+        intlCard: "International Card",
+        banTitle: "Ban List",
+        banNote: "Search by player name or reason; contact administration if you believe a ban is in error.",
+        banSearchPh: "Search by name or reason...",
+        colReason: "Reason",
+        colDuration: "Duration",
+        colStatus: "Status",
+        faqTitle: "Frequently Asked Questions (FAQ)",
+        faq1Q: "How do I join the server?",
+        faq1A: "Click Play Now or Steam Connect, or open the in-game console and type: connect 82.47.171.126:27015.",
+        faq2Q: "What are the VIP and Admin prices and payment methods?",
+        faq2A: "Inside Algeria: VIP is 300 DZD and Admin is 500 DZD (BaridiMob, CCP, or balance). Outside Algeria: VIP is $2 and Admin is $5 (PayPal, Binance, or Visa Card).",
+        faq3Q: "How are event and Top 15 rewards distributed?",
+        faq3A: "Top 1 receives 1 month of VIP, Top 2 and Top 3 each receive 1 week of VIP, and the player with the highest playtime receives 1 month of VIP.",
+        commTitle: "Community & Contact",
+        commDesc: "Stay up to date and reach the 彡 The Best Botino 彡 [Family] 亗 team.",
+        steamDirectBtn: "Direct Steam Join",
+        footerSub: "Counter-Strike 1.6 Community Server",
+        donateTitle: "Support Botino Family (Donation)",
+        donateP1: "Support the Botino Family to stay strong and keep evolving—we invite you to stand with us and support our Counter-Strike 1.6 server ❤️",
+        donateP2: "Our server isn't just a place to play; it's a family united by friendship, challenge, and fun. With your support and participation, we can upgrade it and deliver the best experience for everyone.",
+        donateP3: "Together toward greater success and progress! Thank you to everyone supporting the Botino Family",
+        donateCta: "View Payment & Rank Details ↗",
+        statusActive: "Active",
+        statusExpired: "Expired",
+        noBanResults: "No matching ban records found.",
+        noPlayersOnline: "No players currently online or map is changing.",
+        noTop15Data: "No Top 15 leaderboard data available right now.",
+        refreshedMsg: "Live server data refreshed.",
+        copiedIpMsg: (ip) => `Copied address: ${ip}`
+      }
+    };
+
+    function formatPlaytime(seconds) {
+      const s = Math.max(0, Math.floor(Number(seconds) || 0));
+      const h = Math.floor(s / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      if (h > 0) return `${h}h ${String(m).padStart(2, "0")}m`;
+      return `${m}m`;
+    }
+
+    function updateMapThumbnails(mapName) {
+      const cleanMap = (mapName || "de_dust2").trim().toLowerCase();
+      const mapUrl = `https://image.gametracker.com/images/maps/160x120/cs/${encodeURIComponent(cleanMap)}.jpg`;
+      const heroImg = document.getElementById("heroMapImg");
+      const barImg = document.getElementById("barMapImg");
+      if (heroImg) {
+        heroImg.src = mapUrl;
+        heroImg.alt = mapName;
+      }
+      if (barImg) {
+        barImg.src = mapUrl;
+        barImg.alt = mapName;
+      }
+    }
+
+    function renderPlayersTable(playersList) {
+      const t = translations[currentLang];
+      const tbody = document.getElementById("playersTableBody");
+      if (!playersList || !playersList.length) {
+        tbody.innerHTML = `<tr><td colspan="4" class="py-5 px-4 text-center text-slate-400 text-xs">${escapeHtml(t.noPlayersOnline)}</td></tr>`;
+        return;
+      }
+
+      const sorted = [...playersList].sort((a, b) => (b.score || 0) - (a.score || 0));
+      tbody.innerHTML = sorted.map((p, idx) => {
+        const rawSecs = p.duration ?? p.time ?? p.raw?.time ?? 0;
+        const displayTime = (p.timeStr && p.timeStr !== "0m") ? p.timeStr : formatPlaytime(rawSecs);
+
+        return `
+          <tr class="hover:bg-slate-800/40 transition">
+            <td class="py-3 px-4 font-tech text-slate-400">${idx + 1}</td>
+            <td class="py-3 px-4">
+              <span class="font-semibold text-white" dir="ltr">${escapeHtml(p.name || "Player")}</span>
+            </td>
+            <td class="py-3 px-4 font-tech text-emerald-400 font-bold">${Number(p.score) || 0}</td>
+            <td class="py-3 px-4 font-tech text-slate-300">${escapeHtml(displayTime)}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    async function fetchFromGameTracker() {
+      const targetUrl = `https://www.gametracker.rs/server_info/${SERVER_IP}:${SERVER_PORT}`;
+      const proxies = [
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`,
+        `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`
+      ];
+
+      for (const proxyUrl of proxies) {
+        try {
+          const res = await fetch(proxyUrl);
+          if (!res.ok) continue;
+          const html = await res.text();
+          if (!html || !html.includes("Botino")) continue;
+
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const topPlayers = [];
+          const tables = Array.from(doc.querySelectorAll("table"));
+
+          for (const tbl of tables) {
+            const txt = tbl.textContent || "";
+            if (/Total\s*Score/i.test(txt) && /Total\s*Time/i.test(txt)) {
+              const rows = Array.from(tbl.querySelectorAll("tr"));
+              for (const tr of rows) {
+                const cols = Array.from(tr.querySelectorAll("td")).map(td => td.textContent.trim()).filter(Boolean);
+                if (cols.length >= 4 && /^\d+$/.test(cols[0]) && topPlayers.length < 15) {
+                  const kills = Number(cols[2]) || 0;
+                  topPlayers.push({
+                    name: cols[1],
+                    isSteam: false,
+                    kills,
+                    hs: Math.round(kills * 0.42),
+                    playtime: cols[3] || "0m"
+                  });
+                }
+              }
+              break;
+            }
+          }
+
+          if (topPlayers.length > 0) {
+            return { topPlayers };
+          }
+        } catch (_) {}
+      }
+
+      return null;
+    }
+
+    async function fetchLiveServerData(manual = false) {
+      const btn = document.getElementById("refreshBtn");
+      if (manual && btn) btn.textContent = "...";
+
+      try {
+        let loaded = false;
+        let top15Loaded = false;
+
+        try {
+          const res = await fetch(`/api/players?t=${Date.now()}`, { cache: "no-store" });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && (data.online || Array.isArray(data.players))) {
+              const mapName = data.map || "de_dust2";
+              const playersArr = Array.isArray(data.players) ? data.players : [];
+              const num = data.numplayers ?? playersArr.length;
+              const max = data.maxplayers ?? 32;
+              const countStr = `${num} / ${max}`;
+
+              document.getElementById("currentMap").textContent = mapName;
+              document.getElementById("heroMap").textContent = mapName;
+              updateMapThumbnails(mapName);
+
+              document.getElementById("playerCount").textContent = countStr;
+              document.getElementById("heroPlayers").textContent = countStr;
+
+              lastLivePlayers = playersArr;
+              renderPlayersTable(lastLivePlayers);
+              loaded = true;
+            }
+
+            if (data && Array.isArray(data.topPlayers) && data.topPlayers.length > 0) {
+              top15Data = data.topPlayers;
+              renderTop15();
+              top15Loaded = true;
+            }
+          }
+        } catch (_) {}
+
+        if (!top15Loaded) {
+          const gtData = await fetchFromGameTracker();
+          if (gtData && gtData.topPlayers && gtData.topPlayers.length > 0) {
+            top15Data = gtData.topPlayers;
+            renderTop15();
+            top15Loaded = true;
+          }
+        }
+
+        if (!top15Loaded) {
+          renderTop15();
+        }
+
+        if (!loaded) {
+          renderPlayersTable(lastLivePlayers);
+        }
+
+        if (manual) showFeedback(translations[currentLang].refreshedMsg);
+      } catch (e) {
+        renderPlayersTable(lastLivePlayers);
+        renderTop15();
+      } finally {
+        if (btn) btn.textContent = translations[currentLang].btnRefresh;
+      }
+    }
+
+    function refreshPlayers(manual = false) {
+      fetchLiveServerData(manual);
+    }
+
+    function handleTopGVote() {
+      window.open(TOPG_VOTE_URL, "_blank", "noopener,noreferrer");
+      localStorage.setItem("botino_last_vote", Date.now().toString());
+      updateVoteButton();
+      showFeedback(currentLang === "ar"
+        ? "شكراً لدعمك عائلة بوتينو! تم فتح صفحة التصويت."
+        : "Thanks for supporting Botino Family! Voting page opened.");
+    }
+
+    function updateVoteButton() {
+      const btnText = document.getElementById("voteBtnText");
+      if (!btnText) return;
+      const lastVote = parseInt(localStorage.getItem("botino_last_vote") || "0", 10);
+      const remaining = VOTE_COOLDOWN_MS - (Date.now() - lastVote);
+
+      if (remaining > 0) {
+        const hours = Math.floor(remaining / (1000 * 60 * 60));
+        const mins = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+        btnText.textContent = currentLang === "ar"
+          ? `🔥 تم التصويت (متبقي ${hours}س ${mins}د)`
+          : `🔥 Voted (${hours}h ${mins}m left)`;
+      } else {
+        btnText.textContent = currentLang === "ar"
+          ? "🔥 صوّت للسيرفر (TopG)"
+          : "🔥 Vote for Server (TopG)";
+      }
+    }
+
+    function renderPlayerCell(p) {
+      const safeName = escapeHtml(p.name);
+      if (p.isSteam) {
+        const avatarImg = `<img src="${escapeHtml(p.avatar)}" alt="${safeName}" class="w-7 h-7 rounded-full object-cover border border-sky-400/50 bg-slate-800 shrink-0" />`;
+        const profileLink = p.steamProfileUrl
+          ? `<a href="${escapeHtml(p.steamProfileUrl)}" target="_blank" rel="noopener noreferrer" title="Steam Profile" class="hover:text-sky-300 transition">${STEAM_ICON_SVG}</a>`
+          : STEAM_ICON_SVG;
+
+        return `
+          <div class="inline-flex items-center gap-2.5" dir="ltr">
+            ${avatarImg}
+            <span class="font-semibold text-white">${safeName}</span>
+            ${profileLink}
+          </div>
+        `;
+      }
+      return `<span class="font-semibold text-slate-200" dir="ltr">${safeName}</span>`;
+    }
+
+    function renderTop15() {
+      const t = translations[currentLang];
+      const tbody = document.getElementById("top15TableBody");
+      if (!top15Data || !top15Data.length) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-6 px-4 text-center text-slate-400 text-xs">${escapeHtml(t.noTop15Data)}</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = top15Data.map((p, idx) => {
+        const rank = idx + 1;
+        const badgeClass =
+          rank === 1 ? "text-fuchsia-400 font-bold" :
+          rank === 2 ? "text-sky-300 font-bold" :
+          rank === 3 ? "text-emerald-300 font-bold" :
+          "text-slate-400";
+
+        return `
+          <tr class="hover:bg-slate-800/40 transition">
+            <td class="py-3 px-4 font-tech ${badgeClass}">#${rank}</td>
+            <td class="py-3 px-4">${renderPlayerCell(p)}</td>
+            <td class="py-3 px-4 font-tech text-emerald-400 font-bold">${p.kills}</td>
+            <td class="py-3 px-4 font-tech text-fuchsia-300">${p.hs}</td>
+            <td class="py-3 px-4 font-tech text-slate-300">${p.playtime}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function renderBans() {
+      const t = translations[currentLang];
+      const q = (document.getElementById("banSearchInput").value || "").trim().toLowerCase();
+      const filtered = sampleBans.filter(b =>
+        b.player.toLowerCase().includes(q) || b.reason.toLowerCase().includes(q)
+      );
+
+      const tbody = document.getElementById("bansTableBody");
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="4" class="py-4 px-4 text-center text-slate-400 text-xs">${escapeHtml(t.noBanResults)}</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(b => `
+        <tr class="hover:bg-slate-800/40 transition">
+          <td class="py-3 px-4 font-semibold text-white" dir="ltr">${escapeHtml(b.player)}</td>
+          <td class="py-3 px-4 text-slate-300" dir="ltr">${escapeHtml(b.reason)}</td>
+          <td class="py-3 px-4 font-tech text-fuchsia-300">${escapeHtml(b.duration)}</td>
+          <td class="py-3 px-4">
+            ${b.active
+              ? `<span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-rose-500/15 text-rose-300 border border-rose-500/30">${escapeHtml(t.statusActive)}</span>`
+              : `<span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-slate-800 text-slate-400 border border-slate-700">${escapeHtml(t.statusExpired)}</span>`
+            }
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function copyIp() {
+      navigator.clipboard?.writeText(IP_ADDR);
+      showFeedback(translations[currentLang].copiedIpMsg(IP_ADDR));
+    }
+
+    function showFeedback(msg) {
+      const el = document.getElementById("feedbackMsg");
+      el.textContent = msg;
+      setTimeout(() => { el.textContent = ""; }, 2500);
+    }
+
+    function toggleDonateBody() {
+      const body = document.getElementById("donateBody");
+      const btn = document.getElementById("donateToggleBtn");
+      const isHidden = body.classList.toggle("hidden");
+      btn.textContent = isHidden ? "+" : "—";
+    }
+
+    function updateLangButton() {
+      const btn = document.getElementById("langBtn");
+      if (currentLang === "ar") {
+        btn.innerHTML = `${UK_FLAG_SVG}<span>English</span>`;
+      } else {
+        btn.innerHTML = `${DZ_FLAG_SVG}<span>العربية</span>`;
+      }
+    }
+
+    function applyTranslations() {
+      const t = translations[currentLang];
+      const isAr = currentLang === "ar";
+      document.documentElement.lang = isAr ? "ar" : "en";
+      document.documentElement.dir = isAr ? "rtl" : "ltr";
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (typeof t[key] === "string") {
+          el.textContent = t[key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (typeof t[key] === "string") {
+          el.setAttribute("placeholder", t[key]);
+        }
+      });
+
+      updateLangButton();
+      updateVoteButton();
+      renderPlayersTable(lastLivePlayers);
+      renderTop15();
+      renderBans();
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === "ar" ? "en" : "ar";
+      applyTranslations();
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, (m) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[m]));
+    }
+
+    renderTop15();
+    applyTranslations();
+    fetchLiveServerData(false);
+    setInterval(() => fetchLiveServerData(false), 15000);
+    setInterval(updateVoteButton, 60000);
+  </script>
+</body>
+</html>

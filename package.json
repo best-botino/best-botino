@@ -1,0 +1,7 @@
+{
+  "name": "botino-cs16",
+  "type": "module",
+  "dependencies": {
+    "gamedig": "^5.1.0"
+  }
+}
